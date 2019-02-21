@@ -13,14 +13,12 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -31,15 +29,15 @@
         <!--添加相应版本的hadoop依赖-->
         <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common -->
         <!--<dependency>-->
-            <!--<groupId>org.apache.hadoop</groupId>-->
-            <!--<artifactId>hadoop-common</artifactId>-->
-            <!--<version>${hadoop.version}</version>-->
+        <!--<groupId>org.apache.hadoop</groupId>-->
+        <!--<artifactId>hadoop-common</artifactId>-->
+        <!--<version>${hadoop.version}</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>org.apache.hadoop</groupId>-->
-            <!--<artifactId>hadoop-client</artifactId>-->
-            <!--<version>${hadoop.version}</version>-->
+        <!--<groupId>org.apache.hadoop</groupId>-->
+        <!--<artifactId>hadoop-client</artifactId>-->
+        <!--<version>${hadoop.version}</version>-->
         <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client -->
@@ -87,7 +85,57 @@
     </repositories>
 
     <build>
-        <finalName>bc_tracker_jssdk</finalName>
+        <testResources></testResources>
+        <!--<finalName></finalName>-->
+        <!--编译所依赖的插件-->
+        <!--<plugins>-->
+        <!--&lt;!&ndash; 设置编译版本为1.8&ndash;&gt;-->
+        <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-compiler-plugin</artifactId>-->
+        <!--<configuration>-->
+        <!--<source>1.8</source>-->
+        <!--<target>1.8</target>-->
+        <!--<encoding>UTF-8</encoding>-->
+        <!--</configuration>-->
+        <!--</plugin>-->
+        <!--</plugins>-->
+
+        <plugins>
+            <!--指定打入依赖jar包到自己的jar包中的插件配置-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>eu.bitwalker:UserAgentUtils</include>
+                                </includes>
+
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--&lt;!&ndash; 设置编译版本为1.8&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<source>1.8</source>-->
+                    <!--<target>1.8</target>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        </plugins>
     </build>
 
 </project>

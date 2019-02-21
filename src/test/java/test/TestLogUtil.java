@@ -7,6 +7,7 @@ import eu.bitwalker.useragentutils.UserAgent;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.HashMap;
 import java.util.Map;
 
 public class TestLogUtil {
@@ -19,7 +20,8 @@ public class TestLogUtil {
     }
 
     public void test(){
-
+//        HashMap
+//        Integer.MAX_VALUE
     }
 
 }

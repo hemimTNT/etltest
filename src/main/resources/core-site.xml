@@ -17,26 +17,26 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<property>
-<name>fs.defaultFS</name>
-<value>hdfs://isolate:8020</value>
-</property>
-<!--<property>-->
-<!--<name>hadoop.tmp.dir</name>-->
-<!--<value>/opt/app/hadoop-2.6.0-cdh5.13.2/data/tmp</value>-->
-<!--</property>-->
-<!--<property>-->
-<!--<name>hadoop.proxyuser.hadoop.hosts</name>-->
-<!--<value>*</value>-->
-<!--</property>-->
-<!--<property>-->
-<!--<name>hadoop.proxyuser.hadoop.groups</name>-->
-<!--<value>*</value>-->
-<!--</property>-->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://ns1</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/opt/app/hadoop-2.6.0-cdh5.13.2/data/tmp</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.hadoop.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.hadoop.groups</name>
+        <value>*</value>
+    </property>
 
-<!--<property>-->
-	   <!--<name>ha.zookeeper.quorum</name>-->
-	   <!--<value>isolate:2181,cdh1:2181,cdh2:2181</value>-->
-	<!--</property>-->
+    <property>
+        <name>ha.zookeeper.quorum</name>
+        <value>isolate:2181,cdh1:2181,cdh2:2181</value>
+    </property>
 
 </configuration>
